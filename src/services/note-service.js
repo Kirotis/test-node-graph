@@ -9,6 +9,7 @@ class NoteService {
             noteModel.find((notes) => resolve(notes));
         });
     }
+    
     getNote(query) {
         return new Promise((resolve) =>
             noteModel.findOne(query, "", {}, (notes) => resolve(notes))
@@ -25,6 +26,7 @@ class NoteService {
             noteModel.create(newNote, (notes) => resolve(notes));
         });
     }
+
     checkNote(query) {
         return new Promise((resolve) => {
             this.getNote(query).then((note) => {
